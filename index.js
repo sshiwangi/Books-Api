@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
-const books_routes = require("./routes/books");
+const books_routes = require("./routes/booksRoutes");
 app.use(express.json());
 
 app.get("/", (req, res) => {

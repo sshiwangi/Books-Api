@@ -1,4 +1,4 @@
-const Book = require("../models/book");
+const Book = require("../models/bookModel");
 
 exports.createBook = async (req, res) => {
   try {
@@ -82,7 +82,9 @@ exports.updateBook = async (req, res) => {
 
 exports.getBooksByAuthor = async (req, res) => {
   try {
+    console.log(req.query.author);
     const authorName = req.query.author;
+
     let query = {};
 
     if (authorName) {
@@ -90,6 +92,7 @@ exports.getBooksByAuthor = async (req, res) => {
     }
 
     const books = await Book.find(query);
+    console.log(books);
 
     if (books.length === 0) {
       return res
